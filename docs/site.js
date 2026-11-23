@@ -11,9 +11,9 @@ function pageUrl(nextView, nextLanguage, hash = "") {
 
 if (language === "en") {
   document.documentElement.lang = "en";
-  document.title = "Yang Cheng · Robot Manipulation & Control";
+  document.title = "Yang Cheng · Dual-Arm VLA & Robot Manipulation";
   document.querySelector('meta[name="description"]').content =
-    "Yang Cheng's robotics portfolio. Whole-body mobile manipulation, dual-arm VLA, force-conditioned policies and vision-guided grasping.";
+    "Yang Cheng's robotics portfolio. Dual-arm VLA, hardware deployment, force-conditioned policies and admittance control at the Beijing Humanoid Robot Innovation Center.";
   for (const element of document.querySelectorAll("[data-en]")) {
     element.textContent = element.dataset.en;
   }
