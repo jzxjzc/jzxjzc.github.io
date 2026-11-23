@@ -20,6 +20,9 @@ if (language === "en") {
   for (const element of document.querySelectorAll("[data-label-en]")) {
     element.setAttribute("aria-label", element.dataset.labelEn);
   }
+  for (const image of document.querySelectorAll("[data-alt-en]")) {
+    image.alt = image.dataset.altEn;
+  }
 }
 
 for (const section of document.querySelectorAll("[data-view]")) {
