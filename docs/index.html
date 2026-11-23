@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101e1b">
+  <meta name="description" content="程扬（Yang Cheng）的机器人作品集。移动机械臂全身协同、双臂 VLA、力觉操作与视觉引导抓取。">
+  <title>程扬 · 机器人操作与控制</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-en="Skip to content">跳到正文</a>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="brand" data-brand href="./index.html?view=research&amp;lang=zh" aria-label="程扬主页" data-label-en="Yang Cheng home">
+        <span class="brand-mark" aria-hidden="true">YC</span>
+        <span data-en="Yang Cheng">程扬</span>
+      </a>
+      <nav class="nav" aria-label="主导航" data-label-en="Main navigation">
+        <a href="./index.html?view=research&amp;lang=zh" data-view-link="research" aria-current="page" data-en="Research &amp; projects">研究与项目</a>
+        <a href="./index.html?view=experience&amp;lang=zh" data-view-link="experience" data-en="Experience">个人经历</a>
+      </nav>
+      <nav class="languages" aria-label="语言" data-label-en="Language">
+        <a href="./index.html?view=research&amp;lang=zh" data-lang-link="zh" lang="zh-CN" aria-current="true">中文</a>
+        <a href="./index.html?view=research&amp;lang=en" data-lang-link="en" lang="en" aria-label="English">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div data-view="research">
+      <section class="hero" aria-labelledby="hero-name">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="alt-name" data-en="程扬">YANG CHENG</p>
+            <h1 id="hero-name" data-en="Yang Cheng">程扬</h1>
+            <p class="hero-role" data-en="Robot manipulation &amp; control">机器人操作与全身协同控制</p>
+            <p class="hero-affiliation" data-en="M.Eng. student in Control Engineering · Dalian University of Technology">大连理工大学 · 控制工程硕士在读</p>
+            <p class="hero-intro" data-en="I work on mobile manipulation and dual-arm VLA, from training policies to deploying them on real robots.">我研究移动机械臂的车臂协同与双臂 VLA，关注从策略训练到真机部署的完整链路。</p>
+            <div class="hero-actions">
+              <a href="#projects" class="primary-link" data-en="Explore projects">浏览项目</a>
+              <a href="mailto:2535804837@qq.com" class="secondary-link" data-en="Email me">邮件联系</a>
+            </div>
+          </div>
+          <figure class="hero-media">
+            <a href="./media/r59-hardware.mp4" class="media-link hero-link" data-video aria-label="播放 R59 双箱绕行实测" data-label-en="Play the R59 hardware trial" data-note-zh="整车、机械臂特写与腕相机同步展示。剪辑为 6 倍速。" data-note-en="Synchronized views of the mobile base, arm and wrist camera. Video at 6× speed.">
+              <img src="./media/r59-hardware.webp" alt="" width="1440" height="756" fetchpriority="high">
+              <span class="play-icon" aria-hidden="true"></span>
+              <span class="runtime" aria-hidden="true">0:57</span>
+            </a>
+            <figcaption class="hero-caption">
+              <span data-video-heading><strong>R59</strong> <span data-en="Staggered-box hardware trial">错列双箱真机试验</span></span>
+              <span data-en="3 views · 6×">三视角 · 6 倍速</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="projects shell" id="projects" aria-labelledby="project-title">
+        <header class="section-heading">
+          <h2 id="project-title" data-en="Selected work">精选项目</h2>
+          <p data-en="Mobile manipulation, dual-arm policies and robot deployment.">移动操作、双臂策略与真机部署</p>
+        </header>
+
+        <article class="project thesis" id="thesis">
+          <div class="project-copy">
+            <p class="project-meta" data-en="Graduate thesis · Nov 2026–present">毕业设计 · 2026.11–至今</p>
+            <h3 data-en="Whole-body obstacle avoidance with persistent target tracking">移动机械臂全身协同绕障与持续观测</h3>
+            <p data-en="How can a mobile manipulator keep a target in its wrist camera while steering around obstacles? I trained a joint PPO policy in Isaac Lab to command linear and angular base velocities alongside 6D end-effector increments.">移动机械臂绕过障碍时，如何让目标持续留在腕相机视野中？我在 Isaac Lab 中训练联合 PPO 策略，同时输出底盘线速度、角速度与六维末端增量。</p>
+            <ul class="project-points">
+              <li data-en="Simulation. Trained across 8,192 parallel environments with a staggered-box curriculum. Compared baseline and candidate policies on 60 paired held-out episodes.">仿真侧用 8,192 个并行环境训练错列箱课程，并在 60 组配对留出回合中比较基线和候选策略。</li>
+              <li data-en="Hardware. Built a 20 Hz base-and-arm control loop and tested joint PPO in an obstacle-free setting. In R59, the base followed a path guided by measured box positions while wrist-camera feedback adjusted joint J1.">真机侧搭建 20 Hz 车臂控制循环，并在无遮挡场景测试联合 PPO。R59 使用实测箱位引导底盘，腕相机反馈闭环调整 J1。</li>
+            </ul>
+          </div>
+          <figure class="demo thesis-demo">
+            <a href="./media/ppo-simulation.mp4" class="media-link" data-video aria-label="播放 PPO 仿真回放" data-label-en="Play the PPO simulation replay">
+              <img src="./media/ppo-simulation.webp" alt="" width="1152" height="648" loading="lazy">
+              <span class="play-icon" aria-hidden="true"></span>
+              <span class="runtime" aria-hidden="true">0:20</span>
+            </a>
+            <figcaption>
+              <strong data-en="Joint PPO in simulation">联合 PPO 仿真回放</strong>
+              <span class="demo-note" data-en="Held-out single-box scenario in Isaac Sim.">Isaac Sim 单箱留出场景。</span>
+            </figcaption>
+          </figure>
+          <div class="trial-evidence">
+            <h4 data-en="R59 · One hardware run">R59 · 单次真机记录</h4>
+            <dl class="metrics">
+              <div><dt data-en="Encoder travel">编码器行程</dt><dd>4.15 <small>m</small></dd></div>
+              <div><dt data-en="Target detections while moving or turning">行进或转向时的腕图检出</dt><dd>6,803<span class="metric-divider"> / </span>6,803</dd></div>
+              <div><dt data-en="Median off-axis angle">腕部离轴角中位数</dt><dd>8.54<small>°</small></dd></div>
+            </dl>
+            <p data-en="The robot cleared both boxes in the recording. A front-depth safety check triggered the final stop and the controller logged the run as failed.">录像中车臂绕过双箱。末段触发前向深度安全检查，车臂停止，控制日志将该回合记为未通过。</p>
+          </div>
+        </article>
+
+        <article class="project project-stack" id="beijing">
+          <div class="project-copy project-lead">
+            <p class="project-meta" data-en="Beijing Humanoid Robot Innovation Center · Jun–Sep 2026">北京人形机器人创新中心 · 2026.06–2026.09</p>
+            <h3 data-en="Dual-arm VLA deployment and contact control">双臂 VLA 部署与接触控制</h3>
+            <p data-en="On the Tianyi wheeled dual-arm robot, I collected and cleaned demonstrations, fine-tuned VLA policies and ran hardware regression tests. I built the policy-to-controller link for 30 Hz action execution and used RTC to align action chunks with execution progress.">在「天轶」轮式双臂机器人上完成数据采集、清洗、VLA 微调和真机回归。我搭建了支持 30 Hz 动作执行的推理控制链路，并用 RTC 将动作块与执行进度对齐。</p>
+          </div>
+          <div class="demo-grid">
+            <figure class="demo">
+              <a href="./media/vla-folding.mp4" class="media-link" data-video aria-label="播放 VLA 双臂叠衣" data-label-en="Play dual-arm VLA shirt folding">
+                <img src="./media/vla-folding.webp" alt="" width="1152" height="648" loading="lazy">
+                <span class="play-icon" aria-hidden="true"></span>
+                <span class="runtime" aria-hidden="true">0:36</span>
+              </a>
+              <figcaption>
+                <strong data-en="Dual-arm shirt folding">VLA 双臂叠衣</strong>
+                <span class="demo-note" data-en="The π0.5 hardware policy folds a shirt using both arms.">π0.5 真机策略完成衣物抓取、翻折和收拢。</span>
+              </figcaption>
+            </figure>
+            <figure class="demo">
+              <a href="./media/vla-laundry.mp4" class="media-link" data-video aria-label="播放洗衣场景衣物转移" data-label-en="Play the laundry transfer demo" data-note-zh="衣物转移片段为原始画面的 2.5 倍速。" data-note-en="A selected laundry transfer sequence at 2.5× speed.">
+                <img src="./media/vla-laundry.webp" alt="" width="1152" height="648" loading="lazy">
+                <span class="play-icon" aria-hidden="true"></span>
+                <span class="runtime" aria-hidden="true">0:28</span>
+              </a>
+              <figcaption>
+                <strong data-en="Laundry transfer">洗衣场景衣物转移</strong>
+                <span class="demo-note" data-en="The robot picks up and transfers garments between the basket and the washer.">机器人在衣篮与滚筒之间连续抓取和转移衣物。</span>
+              </figcaption>
+            </figure>
+            <figure class="demo">
+              <a href="./media/force-wiping.mp4" class="media-link" data-video aria-label="播放力觉 VLA 擦板及力曲线" data-label-en="Play force-conditioned wiping and force traces" data-note-zh="前半段依次展示视觉基线和力觉策略，后半段对比接触力曲线。操作画面经过加速。" data-note-en="The first segment shows the vision-only baseline and force-conditioned policy. The second compares their contact-force traces. The wiping footage is sped up.">
+                <img src="./media/force-wiping.webp" alt="" width="1280" height="720" loading="lazy">
+                <span class="play-icon" aria-hidden="true"></span>
+                <span class="runtime" aria-hidden="true">0:52</span>
+              </a>
+              <figcaption>
+                <strong data-en="Force-conditioned VLA for wiping">力觉 VLA 擦板</strong>
+                <span class="demo-note" data-en="Conditioned action generation on six-axis force/torque feedback. Recorded peak contact force in this comparison fell from about 48 N to 2 N.">用六维力/力矩反馈调节动作生成。这组擦板对比记录中的峰值接触力约从 48 N 降到 2 N。</span>
+              </figcaption>
+            </figure>
+            <figure class="demo">
+              <a href="./media/wrc-admittance.mp4" class="media-link" data-video aria-label="播放 WRC 导纳控制演示" data-label-en="Play the WRC admittance-control demonstration" data-note-zh="2026 世界机器人大会展台演示，成片为原始画面的 3 倍速。" data-note-en="Demonstration recorded at the 2026 World Robot Conference. Final cut at 3× speed.">
+                <img src="./media/wrc-admittance.webp" alt="" width="1152" height="648" loading="lazy">
+                <span class="play-icon" aria-hidden="true"></span>
+                <span class="runtime" aria-hidden="true">0:39</span>
+              </a>
+              <figcaption>
+                <strong data-en="Admittance control at WRC">WRC 导纳控制演示</strong>
+                <span class="demo-note" data-en="The 2026 World Robot Conference booth demo shows compliant interaction on the wheeled robot.">2026 世界机器人大会展台上的传统导纳控制与柔顺交互。</span>
+              </figcaption>
+            </figure>
+          </div>
+          <details class="engineering">
+            <summary data-en="Engineering details">工程细节</summary>
+            <dl>
+              <div>
+                <dt data-en="Data collection and model training">数据与模型</dt>
+                <dd data-en="Iterated on 300–1,000 robot demonstrations per task. Improved camera placement and left/right gripper visibility, used mask augmentation and filtered out anomalous trajectories. Fine-tuned π0.5 end to end and evaluated training or inference pipelines for π0.6, kai0 and FastWAM.">每项任务迭代 300–1,000 条真机轨迹，优化机位与左右夹爪可见性，用掩膜增强并筛除异常轨迹。全量微调 π0.5，并验证 π0.6、kai0 和 FastWAM 的训练或推理链路。</dd>
+              </div>
+              <div>
+                <dt data-en="Real-time deployment">实时部署</dt>
+                <dd data-en="Built an inference server and robot-side client with action bounds, sequence checks and execution logs. RTC uses measured round-trip latency and executed steps to discard stale actions and adjust the next execution window.">搭建推理服务与机器人控制客户端，加入动作限幅、顺序校验和执行日志。RTC 根据往返时延与已执行步数丢弃过期动作，并调整下一段动作的执行窗口。</dd>
+              </div>
+              <div>
+                <dt data-en="Force conditioning">力觉条件注入</dt>
+                <dd data-en="Encoded a window of six-axis force/torque readings and combined it with the flow-matching timestep to condition the action expert through AdaLN. Explored the approach on board wiping, plug handling and USB insertion.">对六维力/力矩历史做时序编码，与流匹配时间步信息融合，再通过 AdaLN 调制动作专家。除擦板外，还探索了插头插拔和 U 盘插入。</dd>
+              </div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="project hangjia" id="hangjia">
+          <div class="project-copy">
+            <p class="project-meta" data-en="Dalian Hangjia Robotics · Jun 2025–Jun 2026">大连航佳机器人 · 2025.06–2026.06</p>
+            <h3 data-en="Vision-guided mobile pick and place">移动机械臂视觉引导抓取</h3>
+            <p data-en="Integrated a RealSense RGB-D camera, YOLOv11 object detection and GraspNet grasp-pose generation on a mobile robot with an Ackermann base and an ECO-63 arm.">在松灵阿克曼底盘和睿尔曼 ECO-63 机械臂上，集成 RealSense RGB-D、YOLOv11 目标检测与 GraspNet 抓取位姿生成。</p>
+            <p data-en="Implemented hand-eye calibration, MoveIt 2 arm planning and collision objects, plus a ROS 2 state machine for pre-grasp, grasp and placement.">完成手眼标定，用 MoveIt 2 处理机械臂规划与碰撞体管理，并以 ROS 2 状态机串联预抓取、抓取和放置。</p>
+          </div>
+          <figure class="demo">
+            <a href="./media/hangjia-grasp.mp4" class="media-link" data-video aria-label="播放航佳机器人真机抓取" data-label-en="Play the Hangjia hardware pick-and-place demo">
+              <img src="./media/hangjia-grasp.webp" alt="" width="1152" height="648" loading="lazy">
+              <span class="play-icon" aria-hidden="true"></span>
+              <span class="runtime" aria-hidden="true">0:53</span>
+            </a>
+            <figcaption>
+              <strong data-en="Mobile pick-and-place demo">移动抓取与放置实拍</strong>
+              <span class="demo-note" data-en="The robot approaches items on the floor, picks them up and places them in its basket. Video at 2× speed.">平台靠近地面物体，机械臂依次拾取并放入车载篮筐。画面为 2 倍速。</span>
+            </figcaption>
+          </figure>
+        </article>
+      </section>
+    </div>
+
+    <div data-view="experience" class="experience" hidden>
+      <header class="experience-header">
+        <div class="shell">
+          <p class="alt-name" data-en="YANG CHENG">程扬 · YANG CHENG</p>
+          <h1 data-en="Experience">个人经历</h1>
+          <p data-en="Control Engineering master’s student at Dalian University of Technology. I work on robot manipulation, planning and control.">大连理工大学控制工程硕士在读，方向为机器人操作、运动规划与控制。</p>
+        </div>
+      </header>
+      <div class="shell experience-content">
+        <section class="resume-section" aria-labelledby="education-title">
+          <h2 id="education-title" data-en="Education">教育背景</h2>
+          <div class="resume-entries">
+            <article class="resume-entry">
+              <p class="resume-date" data-en="Sep 2025–Jun 2028 (expected)">2025.09–2028.06（预计）</p>
+              <h3 data-en="Dalian University of Technology">大连理工大学</h3>
+              <p data-en="Master’s in Control Engineering">控制工程 · 硕士</p>
+            </article>
+            <article class="resume-entry">
+              <p class="resume-date" data-en="Sep 2021–Jun 2025">2021.09–2025.06</p>
+              <h3 data-en="Huazhong Agricultural University">华中农业大学</h3>
+              <p data-en="B.Eng. in Robotics Engineering · Outstanding Graduate">机器人工程 · 工学学士 · 校优秀毕业生</p>
+            </article>
+          </div>
+        </section>
+        <section class="resume-section" aria-labelledby="internship-title">
+          <h2 id="internship-title" data-en="Internships">实习经历</h2>
+          <div class="resume-entries">
+            <article class="resume-entry">
+              <p class="resume-date" data-en="Jun–Sep 2026">2026.06–2026.09</p>
+              <h3 data-en="Beijing Humanoid Robot Innovation Center">北京人形机器人创新中心</h3>
+              <p class="resume-role" data-en="Robot Manipulation Algorithms Intern">机器人操作算法实习生</p>
+              <p data-en="Fine-tuned and deployed π0.5 on real hardware and evaluated π0.6, kai0, RLToken and FastWAM. Implemented force-conditioned action generation for contact tasks and worked on admittance control for the WRC booth demo.">全量微调并部署 π0.5，验证 π0.6、kai0、RLToken 和 FastWAM。在接触任务中实现力觉条件动作生成，并参与 WRC 展台导纳控制。</p>
+              <a class="text-link" href="./index.html?view=research&amp;lang=zh#beijing" data-project-link data-en="See the Beijing demos">查看北京实习演示</a>
+            </article>
+            <article class="resume-entry">
+              <p class="resume-date" data-en="Jun 2025–Jun 2026">2025.06–2026.06</p>
+              <h3 data-en="Dalian Hangjia Robotics">大连航佳机器人</h3>
+              <p class="resume-role" data-en="Robot Motion Control Intern">机器人运动控制实习生</p>
+              <p data-en="Integrated RealSense, YOLOv11 and GraspNet with ROS 2 and MoveIt 2, from RGB-D perception to arm planning, grasp execution and placement.">融合 RealSense、YOLOv11、GraspNet 与 ROS 2、MoveIt 2，贯通 RGB-D 感知、机械臂规划、抓取和放置。</p>
+              <a class="text-link" href="./index.html?view=research&amp;lang=zh#hangjia" data-project-link data-en="See the Hangjia demo">查看航佳实习演示</a>
+            </article>
+          </div>
+        </section>
+        <section class="resume-section" aria-labelledby="additional-title">
+          <h2 id="additional-title" data-en="Additional work">其他项目</h2>
+          <div class="resume-entries">
+            <article class="resume-entry">
+              <p class="resume-date" data-en="Mar–Jun 2026">2026.03–2026.06</p>
+              <h3 data-en="Lite3 blind locomotion">云深处 Lite3 四足机器人盲步态控制</h3>
+              <p data-en="Trained a blind locomotion policy with PPO, terrain curricula and domain randomization. Exported the policy to ONNX for sim-to-sim evaluation in MuJoCo.">以 PPO、地形课程与域随机化训练盲步态策略，导出 ONNX 并在 MuJoCo 中完成跨仿真验证。</p>
+            </article>
+          </div>
+        </section>
+        <section class="resume-section" aria-labelledby="awards-title">
+          <h2 id="awards-title" data-en="Competition awards">竞赛获奖</h2>
+          <ul class="awards">
+            <li><strong data-en="National Grand Prize · Team lead">国家特等奖 · 队长</strong><span data-en="International Student Contest on Intelligent Agricultural Equipment · Water chestnut picking robot">国际大学生智能农业装备创新大赛 · 荸荠捡拾机器人</span></li>
+            <li><strong data-en="Provincial Second Prize · Team lead">省二等奖 · 队长</strong><span data-en="China Undergraduate Engineering Practice and Innovation Competition · Intelligent waste sorting">中国大学生工程实践与创新能力大赛 · 智能垃圾分类</span></li>
+            <li><strong data-en="Provincial Second Prize · Team lead">省二等奖 · 队长</strong><span data-en="National Undergraduate Electronics Design Contest · Tic-tac-toe robot">全国大学生电子设计竞赛 · 三子棋博弈机器人</span></li>
+          </ul>
+        </section>
+        <section class="resume-section" aria-labelledby="skills-title">
+          <h2 id="skills-title" data-en="Technical skills">技术栈</h2>
+          <dl class="skills">
+            <div><dt data-en="Languages &amp; frameworks">开发与框架</dt><dd>Python, C++, PyTorch, JAX</dd></div>
+            <div><dt data-en="Robotics &amp; simulation">机器人与仿真</dt><dd>ROS 2, MoveIt 2, Isaac Lab, MuJoCo, Gazebo</dd></div>
+            <div><dt data-en="Methods">算法</dt><dd data-en="VLA fine-tuning and deployment, PPO, motion planning, admittance control">VLA 微调与部署、PPO、运动规划、导纳控制</dd></div>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div>
+        <strong data-en="Yang Cheng">程扬</strong>
+        <p data-en="Robot manipulation &amp; control">机器人操作与控制</p>
+      </div>
+      <a href="mailto:2535804837@qq.com">2535804837@qq.com</a>
+    </div>
+  </footer>
+
+  <dialog id="video-dialog" aria-labelledby="video-title" aria-describedby="video-description">
+    <div class="dialog-header">
+      <h2 id="video-title"></h2>
+      <form method="dialog">
+        <button class="close-dialog" type="submit" autofocus data-en="Close">关闭</button>
+      </form>
+    </div>
+    <video controls playsinline preload="metadata"></video>
+    <div class="dialog-footer">
+      <p id="video-description"></p>
+      <a class="text-link" id="video-file" data-en="Open video file">打开视频文件</a>
+    </div>
+  </dialog>
+</body>
+</html>
